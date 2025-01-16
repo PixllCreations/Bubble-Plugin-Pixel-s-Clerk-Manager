@@ -1,0 +1,6 @@
+{
+    "dependencies": {
+        "@clerk/backend": "latest",
+        "node-fetch": "^2.6.7"
+    }
+}

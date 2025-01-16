@@ -1,0 +1,5 @@
+{
+    "category": "plugins",
+    "display": "Log out of Clerk",
+    "type": "client_side"
+}

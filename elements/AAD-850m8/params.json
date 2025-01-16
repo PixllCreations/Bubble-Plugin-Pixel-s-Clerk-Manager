@@ -1,0 +1,65 @@
+{
+    "add_is_visible": true,
+    "category": "visual elements",
+    "default_dim": {
+        "height": 1,
+        "width": 1
+    },
+    "display": "ClerkProvider",
+    "events": {
+        "AAG": {
+            "caption": "loaded with user",
+            "name": "clerk_with_user"
+        },
+        "AAH": {
+            "caption": "loaded without user",
+            "name": "clerk_without_user"
+        }
+    },
+    "icon": "ion-android-checkbox-blank",
+    "states": {
+        "AAE": {
+            "caption": "Clerk user email",
+            "doc": "User state",
+            "initialization_code": {
+                "fn": "function(properties, context) {\nreturn null;\n}"
+            },
+            "name": "clerk_email",
+            "value": "text"
+        },
+        "AAF": {
+            "caption": "Clerk user_id",
+            "doc": "User state",
+            "initialization_code": {
+                "fn": "function(properties, context) {\nreturn null;\n}"
+            },
+            "name": "clerk_id",
+            "value": "text"
+        },
+        "AAt": {
+            "caption": "clerk_session_token",
+            "doc": "User state",
+            "initialization_code": {
+                "fn": "function(properties, context) {\nreturn null;\n}"
+            },
+            "name": "clerk_session_token",
+            "value": "text"
+        },
+        "AAu": {
+            "caption": "isVerified",
+            "initialization_code": {
+                "fn": "function(properties, context) {\nreturn false;\n}"
+            },
+            "name": "isVerified",
+            "value": "boolean"
+        },
+        "AAy": {
+            "caption": "clerk_phone",
+            "initialization_code": {
+                "fn": "function(properties, context) {\nreturn null;\n}"
+            },
+            "name": "clerk_phone",
+            "value": "text"
+        }
+    }
+}

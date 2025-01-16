@@ -1,0 +1,24 @@
+{
+    "category": "plugins",
+    "display": "Open Sign In Modal",
+    "fields": {
+        "ACL": {
+            "caption": "email",
+            "doc": "Email address for pre-filling the email field",
+            "editor": "DynamicValue",
+            "name": "email",
+            "optional": true,
+            "rank": 0,
+            "value": "text"
+        },
+        "ACM": {
+            "caption": "redirect url",
+            "editor": "DynamicValue",
+            "name": "redirect_url",
+            "optional": true,
+            "rank": 1,
+            "value": "text"
+        }
+    },
+    "type": "client_side"
+}

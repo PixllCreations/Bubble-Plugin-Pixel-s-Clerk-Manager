@@ -1,0 +1,47 @@
+{
+    "category": "plugins",
+    "display": "Validate Clerk Session",
+    "fields": {
+        "ABW": {
+            "caption": "clerk_session_token",
+            "editor": "DynamicValue",
+            "name": "clerk_session_token",
+            "rank": 0,
+            "value": "text"
+        }
+    },
+    "return_value": {
+        "AAw": {
+            "caption": "status",
+            "name": "status",
+            "rank": 0,
+            "value": "text"
+        },
+        "AAx": {
+            "caption": "message",
+            "name": "message",
+            "rank": 2,
+            "value": "text"
+        },
+        "ABY": {
+            "caption": "reason",
+            "name": "reason",
+            "rank": 1,
+            "value": "text"
+        },
+        "ABZ": {
+            "caption": "isSignedIn",
+            "name": "isSignedIn",
+            "rank": 3,
+            "value": "boolean"
+        },
+        "ABb": {
+            "caption": "obj",
+            "name": "obj",
+            "rank": 4,
+            "value": "text"
+        }
+    },
+    "type": "server_side",
+    "use_packages": true
+}

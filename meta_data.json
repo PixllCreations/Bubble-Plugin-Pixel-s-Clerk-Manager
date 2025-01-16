@@ -1,0 +1,12 @@
+{
+    "categories": {
+        "0": "productivity"
+    },
+    "data_tracked": true,
+    "data_tracked_description": "Clerk uses Clerk user and session data to authenticate user's and persist authentication on multiple pages.",
+    "description": "Plugin used to manage the Clerk SDK within your Bubble app",
+    "image": "//meta-q.cdn.bubble.io/f1736207149801x300242404852466100/68747470733a2f2f696d616765732e636c65726b2e636f6d2f7374617469632f6c6f676f2d6c696768742d6d6f64652d343030783430302e706e67.png",
+    "license": "open_source",
+    "name": "Pixel's Clerk Manager",
+    "sa_node_version": 18
+}

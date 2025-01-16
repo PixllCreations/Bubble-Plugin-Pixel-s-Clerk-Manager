@@ -1,0 +1,75 @@
+<!-- Util for dynamically adjusting redirect URL's for Clerk Elements -->
+<script>
+   const currentURL = window.location.href; // or replace with your test URL
+   const baseURL = getBaseURL(currentURL);
+   const baseVersion = window.app.app_version;
+  
+    // Utility function used for fetching the url w/ 'version-{branch}' when not in prod. 
+   function getBaseURL(url) {
+   // Extract the domain and pathname
+	const urlObj = new URL(url);
+   // Check if a `version-{version}` pattern exists in the pathname
+   const match = urlObj.pathname.match(/\/version-[^/]+/);
+       
+        // Get the origin without the protocol (e.g., "example.com")
+  const originWithoutProtocol = urlObj.origin.replace(/^https?:\/\//, '');
+
+   if (match) {
+    // If a version path exists, return up to that part
+    return `${originWithoutProtocol}${match[0]}`;
+    } else {
+      // Else, return just the domain
+       return `${originWithoutProtocol}/`;
+    }
+  }
+    
+    // Utility function for fetching the path of a URL. Used for dynamic redirection with Clerk.
+  function getPath(url) {
+    url = new URL(url);
+    return url.pathname;
+  }
+    
+    let logMessage = "Clerk is not available yet";
+    let clerkCheck = () => { console.log(logMessage); };
+    
+    // Utility function for handling Clerk not being loaded in the DOM yet.
+       const waitForClerk = (callback, attempt = 1) => {
+        const Clerk = window.Clerk;
+        const maxAttempts = 5; // Maximum number of attempts
+        const baseDelay = 2000; // Initial delay (2 seconds)
+        const delay = Math.min(baseDelay * 2 ** (attempt - 1), 10000); // Calculate delay
+           
+           
+
+        if (Clerk) {
+            // Clerk variable has been loaded into the DOM.
+             logMessage = "Clerk is available";
+
+            if (Clerk.loaded) {
+                logMessage = "Clerk is available and fully loaded";
+                callback();
+            } else if (typeof Clerk.isReady === 'function') {
+                Clerk.isReady(() => {
+                    logMessage = "Clerk is available and ready";
+                    callback();
+                });
+            } else {
+                logMessage = "Clerk is defined but not loaded, and isReady is not a function.";
+                if (attempt < maxAttempts) {
+                   logMessage = `Clerk is defined but not ready. Attempt ${attempt} of ${maxAttempts}. Retrying in ${delay}ms...`;
+                    setTimeout(() => waitForClerk(callback, attempt + 1), delay);
+                } else {
+                    logMessage = `Clerk has failed to load ${attempt} times.`;
+                    console.error("Clerk failed to load after maximum retries.");
+                }
+            }
+        } else if (attempt < maxAttempts) {
+            logMessage = `Waiting for Clerk... Attempt ${attempt} of ${maxAttempts}. Retrying in ${delay}ms...`;
+            console.warn(logMessage);
+            setTimeout(() => waitForClerk(callback, attempt + 1), delay);
+        } else {
+            logMessage =  "Clerk failed to load after maximum retries.";
+            console.error(logMessage);
+        }
+    };
+</script>

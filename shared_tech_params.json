@@ -1,0 +1,24 @@
+{
+    "dependencies": {
+        "plugin_api_version": 4,
+        "use_jquery": true
+    },
+    "shared_keys": {
+        "AAT": {
+            "caption": "FRONTEND_API",
+            "type": "client_safe"
+        },
+        "AAV": {
+            "caption": "CLERK_PUBLISHABLE_KEY",
+            "type": "client_safe"
+        },
+        "AAq": {
+            "caption": "JWT_KEY",
+            "type": "secure"
+        },
+        "AAr": {
+            "caption": "CLERK_SECRET_KEY",
+            "type": "secure"
+        }
+    }
+}
